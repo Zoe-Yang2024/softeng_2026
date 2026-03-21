@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>제4차 과제 - BMI & 구구단</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        
+        function post_query(type) {
+            var target_url = (type === 'gugu') ? '/gugudan' : '/bmi';
+            var form_id = (type === 'gugu') ? '#form_gugu' : '#form_bmi';
+            
+            $.ajax({
+                type: "GET", 
+                url: target_url, 
+                data: $(form_id).serialize(), 
+                success: function(data) {
+                    $("#results").html(data); 
+                },
+                dataType: "html" 
+        });
+    }
+    </script>
+</head>
+<body>
+    <h2>응용소프트웨어개발 - 제4차 과제</h2>
+
+    <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+        <h3>1. 구구단 출력</h3>
+        <form id="form_gugu" action="javascript:post_query('gugu')">
+            단: <input type="text" name="dan" value="7"> 
+            <button type="submit">출력</button>
+        </form>
+    </div>
+
+    <div style="border: 1px solid #ccc; padding: 10px;">
+        <h3>2. BMI 계산기</h3>
+        <form id="form_bmi" action="javascript:post_query('bmi')">
+            신장(cm): <input type="text" name="height"> 
+            체중(kg): <input type="text" name="weight"> 
+            <button type="submit">계산</button>
+        </form>
+    </div>
+
+    <hr>
+    <h4>[ 결과 표시 ]</h4>
+    <div id="results" style="padding: 10px; background: #eee;">
+        여기에 결과가 나옵니다.
+    </div>
+</body>
+</html>
