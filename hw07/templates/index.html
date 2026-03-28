@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>My Homepage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>주조양의 개인 홈페이지</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About Me</a>
+            <a href="/blog">Blog</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <div class="card">
+            <h2>환영합니다</h2>
+            <p>안녕하세요. 전북대학교 스마트팜학과에 재학 중인 유학생 주조양입니다.</p>
+            <p>이 홈페이지는 응용소프트웨어개발 과제를 위해 만든 개인 홈페이지입니다.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Zhaoyang Zhu</p>
+    </footer>
+</body>
+</html>

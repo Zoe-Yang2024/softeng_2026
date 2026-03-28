@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Blog List</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About Me</a>
+            <a href="/blog">Blog</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h2>최근 글</h2>
+            <ul>
+                <li>스마트팜에 관심을 가지게 된 이유</li>
+                <li>응용소프트웨어개발 수업에서 배우고 싶은 것</li>
+                <li>처음 만들어 본 개인 홈페이지</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>한 줄 기록</h2>
+            <p>아직은 많이 부족하지만, 하나씩 배우면서 발전하고 있습니다.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Zhaoyang Zhu</p>
+    </footer>
+</body>
+</html>
