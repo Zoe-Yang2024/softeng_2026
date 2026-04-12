@@ -45,10 +45,6 @@ softeng_2026
 ├── hw02
 │   ├── even_odd.py
 │   ├── temperature_convert.py
-│   ├── prime_check.py
-│   ├── prime_numbers.py
-│   ├── factorial.py
-│   ├── even_sum.py
 │   └── gugudan.py
 ├── hw03
 ├── hw04
