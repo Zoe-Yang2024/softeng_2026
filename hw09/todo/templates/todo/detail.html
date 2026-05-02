@@ -1,0 +1,72 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+    }
+
+    h1 {
+        color: #2c3e50;
+    }
+
+    li {
+        margin: 10px 0;
+    }
+
+    input[type="submit"] {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 4px 8px;
+        border-radius: 4px;
+    }
+
+    input[type="text"] {
+        padding: 5px;
+        width: 250px;
+    }
+
+    a {
+        color: #2980b9;
+    }
+</style>
+
+<h1>{{ list.title }}</h1>
+
+<ul>
+    {% for item in list.todoitem_set.all %}
+        <li>
+            {% if item.completed %}
+                <s>{{ item.title }}</s>
+            {% else %}
+                {{ item.title }}
+            {% endif %}
+
+            <form action="{% url 'item-toggle' item.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <input type="submit" value="完成/取消">
+            </form>
+
+            <form action="{% url 'item-delete' item.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <input type="submit" value="删除">
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+
+<h2>添加任务</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="title">
+    <input type="submit" value="添加">
+</form>
+
+<a href="/todo/">返回首页</a>
+
+<hr>
+
+<form action="{% url 'list-delete' list.id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="删除这个列表">
+</form>

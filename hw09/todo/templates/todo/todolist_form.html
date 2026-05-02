@@ -1,0 +1,9 @@
+<h1>新建待办列表</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="保存">
+</form>
+
+<a href="/todo/">返回首页</a>

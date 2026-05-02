@@ -1,0 +1,20 @@
+<style>
+    body { font-family: Arial; margin: 40px; }
+    li { margin: 10px 0; }
+    a { color: #3498db; text-decoration: none; }
+</style>
+
+<h1>我的待办列表</h1>
+
+<ul>
+    {% for list in lists %}
+        <li>
+            <a href="{{ list.id }}/">
+                {{ list.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<p>
+    <a href="add/">新建待办列表</a>
+</p>
