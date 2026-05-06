@@ -69,7 +69,7 @@ softeng_2026
 
 | Week | Topic | Folder |
 |------|------|------|
-| Week 01 | Course Introduction | [hw01](./hw01/assignment01.md) |
+| Week 01 | Course Introduction | [hw01](./hw01) |
 | Week 02 | Python Basic Review | hw02 |
 | Week 03 | Web Basics (HTML, CSS, JS) | hw03 |
 | Week 04 | Web UI (Tailwind, DaisyUI) | [hw04]（./hw04） |
