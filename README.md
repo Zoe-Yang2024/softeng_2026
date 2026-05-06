@@ -75,9 +75,9 @@ softeng_2026
 | Week 04 | Web UI (Tailwind, DaisyUI) | [hw04]（./hw04） |
 | Week 05 | GitHub Pages | [hw05](./hw05) |
 | Week 06 | Django Setup | [hw06](./hw06) |
-| Week 07 | Django Apps | hw07 |
-| Week 08 | Web Application | hw08 |
-| Week 09 | Gemini API | hw09 |
+| Week 07 | Django Apps | [hw07](./hw07)|
+| Week 08 | Web Application | [hw08](./hw08) |
+| Week 09 | Gemini API | [hw09](./hw09) |
 | Week 10 | Django Blog | hw10 |
 | Week 11 | MTV Architecture | hw11 |
 | Week 12 | Web Design | hw12 |
