@@ -72,7 +72,7 @@ softeng_2026
 | Week 01 | Course Introduction | [hw01](./hw01) |
 | Week 02 | Python Basic Review | hw02 |
 | Week 03 | Web Basics (HTML, CSS, JS) | hw03 |
-| Week 04 | Web UI (Tailwind, DaisyUI) | [hw04]（./hw04）|
+| Week 04 | Web UI (Tailwind, DaisyUI) | [hw04](./hw04) |
 | Week 05 | GitHub Pages | [hw05](./hw05) |
 | Week 06 | Django Setup | [hw06](./hw06) |
 | Week 07 | Django Apps | [hw07](./hw07)|
