@@ -74,8 +74,9 @@ softeng_2026
 │   └── tests/
 ├── hw06/                  # Assignment 06: Flask template application
 ├── hw07/                  # Assignment 07: Flask personal homepage
-├── hw08/                  # Assignment 08
-└── hw09/                  # Assignment 09
+├── hw08/                  # Assignment 08: Bootstrap website
+├── hw09/                  # Assignment 09: Flask CSV blog
+└── hw10/                  # Assignment 10: Django personal homepage
 ```
 
 Assignment folders follow the assignment number: `hw01` is Assignment 01,
@@ -96,7 +97,8 @@ missing numbers have not been uploaded yet.
 | 06 | Multiplication table web app | [hw06](./hw06) |
 | 07 | Flask website | [hw07](./hw07) |
 | 08 | Bootstrap website | [hw08](./hw08) |
-| 09 | Django Todo application | [hw09](./hw09) |
+| 09 | Flask CSV blog | [hw09](./hw09) |
+| 10 | Django personal homepage | [hw10](./hw10) |
 
 ---
 
@@ -110,6 +112,8 @@ missing numbers have not been uploaded yet.
 - [Assignment 06: Flask template application](./hw06/README.md)
 - [Assignment 07: Flask personal homepage](./hw07/README.md)
 - [Assignment 08: Bootstrap personal homepage](./hw08/README.md)
+- [Assignment 09: Flask CSV blog](./hw09/README.md)
+- [Assignment 10: Django personal homepage](./hw10/README.md)
 
 Each assignment folder contains its source code and, where applicable, a
 dedicated README with usage instructions and implementation notes.

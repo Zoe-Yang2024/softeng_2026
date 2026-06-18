@@ -1,0 +1,26 @@
+:root { --page: #f4f7f4; --ink: #173125; --accent: #21834f; }
+html { scroll-behavior: smooth; }
+body { background: var(--page); color: var(--ink); font-family: Arial, "Noto Sans KR", sans-serif; }
+.site-header { box-shadow: 0 2px 12px rgba(23,49,37,.06); }
+.nav-pills .nav-link { color: var(--ink); }
+.nav-pills .nav-link.active { background: var(--accent); }
+.hero-section { background: linear-gradient(135deg, #eaf6ed, #fff8e9); }
+.eyebrow { color: var(--accent); font-size: .78rem; font-weight: 700; letter-spacing: .12em; }
+.profile-card, .post-card { border-radius: 1rem; }
+.profile-mark { align-items: center; background: var(--accent); border-radius: 50%; color: white; display: flex; font-size: 1.4rem; font-weight: 700; height: 4.5rem; justify-content: center; width: 4.5rem; }
+dl dd { margin-bottom: 0; text-align: right; }
+.step-number { color: var(--accent); display: inline-block; font-weight: 700; margin-bottom: 1rem; }
+.post-card.featured { border-left: 5px solid var(--accent) !important; }
+.message { color: #17623a; font-weight: 700; }
+.message.error { color: #b02a37; }
+.site-footer { background: #173125; color: #dce6df; }
+@media (max-width: 575.98px) {
+    .navbar { flex-wrap: nowrap; }
+    .navbar-brand { font-size: .93rem; margin-right: .2rem; }
+    .nav-link { font-size: .82rem; padding: .45rem .5rem; }
+    .display-4 { font-size: 2.2rem; }
+    .input-group { display: block; }
+    .input-group .form-control, .input-group-append, .input-group-append .btn { border-radius: .25rem !important; width: 100%; }
+    .input-group-append { margin-left: 0; margin-top: .5rem; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

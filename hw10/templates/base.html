@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ description }}">
+    <title>{{ title }} | Zoe Django</title>
+    <link rel="stylesheet" href="{% static 'single_pages/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'single_pages/css/style.css' %}">
+    <script src="{% static 'single_pages/js/main.js' %}" defer></script>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header class="site-header bg-white border-bottom">
+        <nav class="navbar navbar-light container py-3" aria-label="주요 메뉴">
+            <a class="navbar-brand font-weight-bold" href="{% url 'single_pages:home' %}">ZOE<span class="text-success">.DJANGO</span></a>
+            <div class="nav nav-pills flex-nowrap">
+                <a class="nav-link{% if active_page == 'home' %} active{% endif %}" href="{% url 'single_pages:home' %}">Home</a>
+                <a class="nav-link{% if active_page == 'about' %} active{% endif %}" href="{% url 'single_pages:about' %}">About</a>
+                <a class="nav-link{% if active_page == 'blog' %} active{% endif %}" href="{% url 'blog:post_list' %}">Blog</a>
+            </div>
+        </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer class="site-footer mt-auto py-4">
+        <div class="container d-sm-flex justify-content-between text-center text-sm-left">
+            <p class="mb-1 mb-sm-0">© 2026 Zoe Yang</p>
+            <p class="mb-0">Django · single_pages · blog</p>
+        </div>
+    </footer>
+</body>
+</html>

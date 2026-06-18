@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="container py-5">
+    <header class="mb-5">
+        <p class="eyebrow">ABOUT DJANGO MTV</p>
+        <h1 class="display-4 font-weight-bold">한 요청이 페이지가 되기까지</h1>
+        <p class="lead text-muted">Flask에서 한 파일에 모았던 역할을 Django는 여러 파일로 명확하게 나눕니다.</p>
+    </header>
+
+    <div class="row">
+        <div class="col-md-6 col-lg-3 mb-4"><section class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="step-number">01</span><h2 class="h4">URL</h2><p class="text-muted mb-0">urls.py가 요청 주소와 View를 연결합니다.</p></div></section></div>
+        <div class="col-md-6 col-lg-3 mb-4"><section class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="step-number">02</span><h2 class="h4">View</h2><p class="text-muted mb-0">views.py가 데이터를 준비하고 Template을 선택합니다.</p></div></section></div>
+        <div class="col-md-6 col-lg-3 mb-4"><section class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="step-number">03</span><h2 class="h4">Template</h2><p class="text-muted mb-0">Django Template이 데이터를 HTML로 표현합니다.</p></div></section></div>
+        <div class="col-md-6 col-lg-3 mb-4"><section class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="step-number">04</span><h2 class="h4">Browser</h2><p class="text-muted mb-0">완성된 응답을 브라우저가 사용자에게 보여줍니다.</p></div></section></div>
+    </div>
+
+    <section class="card border-0 shadow-sm mt-3">
+        <div class="card-body p-4">
+            <h2 class="h3">Flask 지식과의 연결</h2>
+            <p class="mb-0">Flask의 route는 Django의 urls.py와 views.py로, url_for는 {% templatetag openblock %} url {% templatetag closeblock %}로, Flask static 링크는 {% templatetag openblock %} static {% templatetag closeblock %}로 바뀝니다.</p>
+        </div>
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="container py-5">
+    <header class="mb-5">
+        <p class="eyebrow">DJANGO BLOG APP</p>
+        <h1 class="display-4 font-weight-bold">Assignment 09의 CSV를<br>Django View로 읽습니다.</h1>
+        <p class="lead text-muted">같은 데이터가 Flask와 Django에서 어떻게 다르게 전달되는지 비교할 수 있습니다.</p>
+    </header>
+
+    <div class="row">
+        <section class="col-lg-8" aria-label="블로그 글 목록">
+            {% if posts %}
+                {% for post in posts %}
+                <article class="card border-0 shadow-sm mb-4 post-card{% if post.featured %} featured{% endif %}">
+                    <div class="card-body p-4">
+                        <div class="d-flex flex-wrap justify-content-between mb-3">
+                            <span class="badge badge-success">{{ post.category }}</span>
+                            <time class="small text-muted" datetime="{{ post.datetime }}">{{ post.date }}</time>
+                        </div>
+                        <h2 class="h3">{{ post.title }}</h2>
+                        <p class="text-muted mb-0">{{ post.content }}</p>
+                    </div>
+                </article>
+                {% endfor %}
+            {% else %}
+                <div class="alert alert-info">CSV 파일에 글이 없습니다.</div>
+            {% endif %}
+        </section>
+        <aside class="col-lg-4">
+            <div class="card border-0 shadow-sm mb-4"><div class="card-body"><h2 class="h5">Categories</h2>{% for category in categories %}<span class="badge badge-light border mr-2 mb-2 p-2">{{ category }}</span>{% endfor %}</div></div>
+            <div class="card border-0 bg-success text-white shadow-sm"><div class="card-body"><h2 class="h5">Django 데이터 흐름</h2><p class="mb-0">CSV → blog/views.py → context → Django Template → Browser</p></div></div>
+        </aside>
+    </div>
+</main>
+{% endblock %}
