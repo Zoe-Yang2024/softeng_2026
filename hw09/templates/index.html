@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<main class="container py-5">
+    <header class="hero rounded-lg p-4 p-md-5 mb-5">
+        <p class="eyebrow mb-2">FLASK · CSV · PANDAS · JINJA</p>
+        <h1 class="display-4 font-weight-bold">CSV로 관리하는<br>나의 작은 블로그</h1>
+        <p class="lead text-muted mb-0">Python이 CSV 파일을 읽고, Flask가 데이터를 전달하고, Jinja가 일곱 개의 글을 화면에 반복 출력합니다.</p>
+    </header>
+
+    <div class="row">
+        <section class="col-lg-8" aria-label="CSV 블로그 글 목록">
+            {% if posts %}
+                {% for post in posts %}
+                <article class="card border-0 shadow-sm mb-4 post-card{% if post.featured %} featured{% endif %}">
+                    <div class="card-body p-4">
+                        <div class="d-flex flex-wrap justify-content-between mb-3">
+                            <span class="badge badge-primary">{{ post.category }}</span>
+                            <time class="small text-muted" datetime="{{ post.datetime }}">{{ post.date }}</time>
+                        </div>
+                        <h2 class="h3">{{ post.title }}</h2>
+                        <p class="text-muted mb-0">{{ post.content }}</p>
+                    </div>
+                </article>
+                {% endfor %}
+            {% else %}
+                <div class="alert alert-info">CSV 파일에 아직 글이 없습니다.</div>
+            {% endif %}
+        </section>
+
+        <aside class="col-lg-4">
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body">
+                    <h2 class="h5">CSV Categories</h2>
+                    {% for category in categories %}
+                        <span class="badge badge-light border mr-2 mb-2 p-2">{{ category }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="card border-0 bg-primary text-white shadow-sm">
+                <div class="card-body">
+                    <h2 class="h5">데이터 흐름</h2>
+                    <p class="mb-0">blog_content.csv → Pandas → Flask → Jinja → Browser</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+</main>
+{% endblock %}

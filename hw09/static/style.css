@@ -1,0 +1,15 @@
+:root { --ink: #162840; --page: #f3f6fa; --accent: #2869b2; }
+body { background: var(--page); color: var(--ink); font-family: Arial, "Noto Sans KR", sans-serif; }
+.nav-pills .nav-link { color: var(--ink); }
+.nav-pills .nav-link.active { background: var(--accent); }
+.hero { background: linear-gradient(135deg, #e7f1ff, #fff7e8); }
+.eyebrow { color: var(--accent); font-size: .78rem; font-weight: 700; letter-spacing: .12em; }
+.post-card { border-radius: 1rem; }
+.post-card.featured { border-left: 5px solid var(--accent) !important; }
+.process-list li { margin-bottom: 1rem; padding-left: .4rem; }
+@media (max-width: 575.98px) {
+    .navbar { flex-wrap: nowrap; }
+    .navbar-brand { font-size: 1rem; margin-right: .25rem; }
+    .nav-link { font-size: .85rem; padding: .45rem .55rem; }
+    .display-4 { font-size: 2.3rem; }
+}

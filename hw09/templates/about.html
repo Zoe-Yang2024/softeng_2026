@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<main class="container py-5">
+    <div class="row justify-content-center">
+        <section class="col-lg-8 card border-0 shadow-sm">
+            <div class="card-body p-4 p-md-5">
+                <p class="eyebrow">ASSIGNMENT 09</p>
+                <h1>CSV 데이터가 웹페이지가 되기까지</h1>
+                <ol class="process-list mt-4">
+                    <li><strong>CSV</strong>가 블로그 내용을 표 형태로 저장합니다.</li>
+                    <li><strong>Pandas</strong>가 CSV를 읽어 Python 데이터로 바꿉니다.</li>
+                    <li><strong>Flask</strong>가 데이터를 Jinja 템플릿에 전달합니다.</li>
+                    <li><strong>Jinja</strong>의 반복문이 글 카드를 만듭니다.</li>
+                    <li><strong>Bootstrap</strong>이 화면을 반응형으로 정리합니다.</li>
+                </ol>
+                <a class="btn btn-primary mt-3" href="{{ url_for('index') }}">CSV 결과 보기</a>
+            </div>
+        </section>
+    </div>
+</main>
+{% endblock %}
