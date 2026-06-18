@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Blog · Zoe's Django Journal{% endblock %}
+
+{% block content %}
+<section class="container section">
+    <div class="page-heading">
+        <div>
+            <p class="eyebrow">DATABASE POSTS</p>
+            <h1>Blog</h1>
+            <p class="lead">Django Admin에서 작성한 게시글을 최신 순서로 보여 줍니다.</p>
+        </div>
+        <a class="button secondary" href="/admin/">Admin</a>
+    </div>
+
+    <div class="post-list">
+        {% for post in post_list %}
+            <article class="post-card">
+                <a class="post-image-link" href="{{ post.get_absolute_url }}" aria-label="{{ post.title }} 상세 보기">
+                    {% if post.head_image %}
+                        <img class="post-thumbnail" src="{{ post.head_image.url }}" alt="{{ post.title }} 대표 이미지">
+                    {% else %}
+                        <img class="post-thumbnail" src="{% static 'single_pages/images/default-post.svg' %}" alt="대표 이미지 없음">
+                    {% endif %}
+                </a>
+                <div>
+                    <div class="post-number">#{{ post.pk|stringformat:"02d" }}</div>
+                    <h2>{{ post.title }}</h2>
+                    <p>{{ post.content|truncatechars:100 }}</p>
+                    <small>{{ post.created_at|date:"Y.m.d H:i" }}</small>
+                </div>
+                <a href="{{ post.get_absolute_url }}">Read more →</a>
+            </article>
+        {% empty %}
+            <div class="empty-state">
+                <h2>아직 게시글이 없습니다</h2>
+                <p>Admin 페이지에서 첫 번째 게시글을 작성해 주세요.</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

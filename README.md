@@ -78,12 +78,18 @@ softeng_2026
 ├── hw09/                  # Assignment 09: Flask CSV blog
 ├── hw10/                  # Assignment 10: Django personal homepage
 ├── hw11/                  # Assignment 11: Django Todo List
-└── hw12/                  # Assignment 12: Django database blog
+├── hw12/                  # Assignment 12: Django database blog
+│   ├── README.md
+│   ├── manage.py
+│   ├── config/            # Django project settings and root URLs
+│   ├── single_pages/      # Landing and About pages
+│   └── blog/              # Post Model, Admin, ListView and DetailView
+└── hw13/                  # Assignment 13: Django media file management
     ├── README.md
     ├── manage.py
-    ├── config/            # Django project settings and root URLs
-    ├── single_pages/      # Landing and About pages
-    └── blog/              # Post Model, Admin, ListView and DetailView
+    ├── config/            # Media settings and root URLs
+    ├── single_pages/      # Shared pages, CSS and default image
+    └── blog/              # ImageField, FileField and media templates
 ```
 
 Assignment folders follow the assignment number: `hw01` is Assignment 01,
@@ -108,13 +114,14 @@ missing numbers have not been uploaded yet.
 | 10 | Django personal homepage | [hw10](./hw10) |
 | 11 | Django Todo List with ORM and SQLite | [hw11](./hw11) |
 | 12 | Django database blog with ListView and DetailView | [hw12](./hw12) |
+| 13 | Django image upload and attachment download | [hw13](./hw13) |
 
 ## ✨ Latest Assignment
 
-**[Assignment 12: Django Blog](./hw12/README.md)** combines a landing page and
-personal introduction with a database-backed blog. Posts are created in Django
-Admin, displayed newest-first by `ListView`, and opened as individual pages by
-`DetailView`. The project includes responsive styling and automated tests.
+**[Assignment 13: Django Media Files](./hw13/README.md)** extends the database
+blog with representative image uploads, a dependable default image, general
+file attachments and download links. Uploaded files are managed through Django
+Admin and displayed in responsive list and detail pages.
 
 ---
 
@@ -132,6 +139,7 @@ Admin, displayed newest-first by `ListView`, and opened as individual pages by
 - [Assignment 10: Django personal homepage](./hw10/README.md)
 - [Assignment 11: Django Todo List](./hw11/README.md)
 - [Assignment 12: Django Blog List and Detail](./hw12/README.md)
+- [Assignment 13: Django Media File Management](./hw13/README.md)
 
 Each assignment folder contains its source code and, where applicable, a
 dedicated README with usage instructions and implementation notes.

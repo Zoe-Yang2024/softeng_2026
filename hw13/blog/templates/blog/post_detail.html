@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ post.title }} · Zoe's Django Journal{% endblock %}
+
+{% block content %}
+<section class="container section narrow">
+    <a class="back-link" href="{% url 'blog:post-list' %}">← 게시글 목록</a>
+    <article class="post-detail">
+        <p class="eyebrow">POST #{{ post.pk }}</p>
+        <h1>{{ post.title }}</h1>
+        <p class="post-meta">작성 {{ post.created_at|date:"Y.m.d H:i" }} · 수정 {{ post.updated_at|date:"Y.m.d H:i" }}</p>
+
+        {% if post.head_image %}
+            <img class="post-hero-image" src="{{ post.head_image.url }}" alt="{{ post.title }} 대표 이미지">
+        {% else %}
+            <img class="post-hero-image" src="{% static 'single_pages/images/default-post.svg' %}" alt="대표 이미지 없음">
+        {% endif %}
+
+        <div class="post-content">{{ post.content }}</div>
+
+        {% if post.file_upload %}
+            <div class="attachment">
+                <div>
+                    <span class="file-extension">{{ post.get_file_ext|upper|default:"FILE" }}</span>
+                    <strong>{{ post.get_file_name }}</strong>
+                </div>
+                <a class="button secondary" href="{{ post.file_upload.url }}" download>첨부파일 다운로드</a>
+            </div>
+        {% endif %}
+    </article>
+</section>
+{% endblock %}
