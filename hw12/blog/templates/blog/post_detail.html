@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} · Zoe's Django Journal{% endblock %}
+
+{% block content %}
+<section class="container section narrow">
+    <a class="back-link" href="{% url 'blog:post-list' %}">← 게시글 목록</a>
+    <article class="post-detail">
+        <p class="eyebrow">POST #{{ post.pk }}</p>
+        <h1>{{ post.title }}</h1>
+        <p class="post-meta">작성 {{ post.created_at|date:"Y.m.d H:i" }} · 수정 {{ post.updated_at|date:"Y.m.d H:i" }}</p>
+        <div class="post-content">{{ post.content }}</div>
+    </article>
+</section>
+{% endblock %}

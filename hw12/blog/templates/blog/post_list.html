@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Blog · Zoe's Django Journal{% endblock %}
+
+{% block content %}
+<section class="container section">
+    <div class="page-heading">
+        <div>
+            <p class="eyebrow">DATABASE POSTS</p>
+            <h1>Blog</h1>
+            <p class="lead">Django Admin에서 작성한 게시글을 최신 순서로 보여 줍니다.</p>
+        </div>
+        <a class="button secondary" href="/admin/">Admin</a>
+    </div>
+
+    <div class="post-list">
+        {% for post in post_list %}
+            <article class="post-card">
+                <div class="post-number">#{{ post.pk|stringformat:"02d" }}</div>
+                <div>
+                    <h2>{{ post.title }}</h2>
+                    <p>{{ post.content|truncatechars:100 }}</p>
+                    <small>{{ post.created_at|date:"Y.m.d H:i" }}</small>
+                </div>
+                <a href="{{ post.get_absolute_url }}">Read more →</a>
+            </article>
+        {% empty %}
+            <div class="empty-state">
+                <h2>아직 게시글이 없습니다</h2>
+                <p>Admin 페이지에서 첫 번째 게시글을 작성해 주세요.</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
