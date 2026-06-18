@@ -1,0 +1,19 @@
+<div class="result-card success">
+    <h3>구구단 {{ dan }}단</h3>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">계산식</th>
+                <th scope="col">결과</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for number, answer in rows %}
+            <tr>
+                <td>{{ dan }} × {{ number }}</td>
+                <td>{{ answer }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

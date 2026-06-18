@@ -2,50 +2,58 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>제4차 과제 - BMI & 구구단</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script>
-        
-        function post_query(type) {
-            var target_url = (type === 'gugu') ? '/gugudan' : '/bmi';
-            var form_id = (type === 'gugu') ? '#form_gugu' : '#form_bmi';
-            
-            $.ajax({
-                type: "GET", 
-                url: target_url, 
-                data: $(form_id).serialize(), 
-                success: function(data) {
-                    $("#results").html(data); 
-                },
-                dataType: "html" 
-        });
-    }
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 04 - Python Web Tools</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
 </head>
 <body>
-    <h2>응용소프트웨어개발 - 제4차 과제</h2>
+    <header class="hero">
+        <p class="eyebrow">응용소프트웨어개발 · Assignment 04</p>
+        <h1>Python Web Tools</h1>
+        <p>Flask, HTML, CSS와 AJAX로 만든 간단한 웹 애플리케이션입니다.</p>
+    </header>
 
-    <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-        <h3>1. 구구단 출력</h3>
-        <form id="form_gugu" action="javascript:post_query('gugu')">
-            단: <input type="text" name="dan" value="7"> 
-            <button type="submit">출력</button>
-        </form>
-    </div>
+    <main class="tool-grid">
+        <section class="tool-card">
+            <div class="tool-number">01</div>
+            <h2>구구단 출력</h2>
+            <p>2부터 9 사이의 단을 입력하면 구구단을 표로 출력합니다.</p>
 
-    <div style="border: 1px solid #ccc; padding: 10px;">
-        <h3>2. BMI 계산기</h3>
-        <form id="form_bmi" action="javascript:post_query('bmi')">
-            신장(cm): <input type="text" name="height"> 
-            체중(kg): <input type="text" name="weight"> 
-            <button type="submit">계산</button>
-        </form>
-    </div>
+            <form id="gugudan-form" action="{{ url_for('gugudan') }}">
+                <label for="dan">단</label>
+                <input id="dan" name="dan" type="number" min="2" max="9" value="7" required>
+                <button type="submit">구구단 만들기</button>
+            </form>
 
-    <hr>
-    <h4>[ 결과 표시 ]</h4>
-    <div id="results" style="padding: 10px; background: #eee;">
-        여기에 결과가 나옵니다.
-    </div>
+            <div id="gugudan-result" class="result" aria-live="polite">
+                결과가 여기에 표시됩니다.
+            </div>
+        </section>
+
+        <section class="tool-card">
+            <div class="tool-number">02</div>
+            <h2>BMI 계산기</h2>
+            <p>키와 몸무게를 입력하면 BMI 값과 구분을 계산합니다.</p>
+
+            <form id="bmi-form" action="{{ url_for('bmi') }}">
+                <label for="height">키 (cm)</label>
+                <input id="height" name="height" type="number" min="1" max="300" step="0.1" placeholder="예: 170" required>
+
+                <label for="weight">몸무게 (kg)</label>
+                <input id="weight" name="weight" type="number" min="1" max="500" step="0.1" placeholder="예: 65" required>
+
+                <button type="submit">BMI 계산하기</button>
+            </form>
+
+            <div id="bmi-result" class="result" aria-live="polite">
+                결과가 여기에 표시됩니다.
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>주조양 · 202420921 · OpenAI Codex 사용 내역은 README에 기록</p>
+    </footer>
 </body>
 </html>

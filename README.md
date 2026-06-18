@@ -57,7 +57,13 @@ softeng_2026
 │   ├── demo.gif
 │   ├── requirements.txt
 │   └── test_app.py
-├── hw04/                  # Assignment 04
+├── hw04/                  # Assignment 04: Flask web application
+│   ├── README.md
+│   ├── app.py
+│   ├── requirements.txt
+│   ├── static/
+│   ├── templates/
+│   └── tests/
 ├── hw05/                  # Assignment 05
 ├── hw06/                  # Assignment 06
 ├── hw07/                  # Assignment 07
@@ -92,6 +98,7 @@ missing numbers have not been uploaded yet.
 - [Assignment 01: Self introduction](./hw01/assignment01.md)
 - [Assignment 02: Python basics](./hw02/README.md)
 - [Assignment 03: Streamlit GUI](./hw03/README.md)
+- [Assignment 04: Flask web application](./hw04/README.md)
 
 Each assignment folder contains its source code and, where applicable, a
 dedicated README with usage instructions and implementation notes.
