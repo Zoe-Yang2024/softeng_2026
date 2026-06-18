@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Blog · Zoe's Django Journal{% endblock %}
+
+{% block content %}
+<section class="container section">
+    <div class="page-heading">
+        <div>
+            <p class="eyebrow">DATABASE POSTS</p>
+            <h1>
+                Blog
+                {% if category_name %}<span class="heading-badge">{{ category_name }}</span>{% endif %}
+                {% if tag %}<span class="heading-badge">#{{ tag.name }}</span>{% endif %}
+            </h1>
+            <p class="lead">
+                {% if category_name %}선택한 카테고리의 게시글입니다.
+                {% elif tag %}선택한 태그가 포함된 게시글입니다.
+                {% else %}카테고리와 태그로 게시글을 쉽게 찾아보세요.{% endif %}
+            </p>
+        </div>
+        <a class="button secondary" href="/admin/">Admin</a>
+    </div>
+
+    <nav class="category-card" aria-label="카테고리 목록">
+        <strong>Categories</strong>
+        <div class="category-links">
+            <a href="{% url 'blog:post-list' %}">전체 ({{ all_post_count }})</a>
+            {% for item in categories %}
+                <a href="{{ item.get_absolute_url }}">{{ item.name }} ({{ item.posts.count }})</a>
+            {% endfor %}
+            <a href="{% url 'blog:category-page' 'no-category' %}">미분류 ({{ no_category_post_count }})</a>
+        </div>
+    </nav>
+
+    <div class="post-list">
+        {% for post in post_list %}
+            <article class="post-card">
+                <a class="post-image-link" href="{{ post.get_absolute_url }}" aria-label="{{ post.title }} 상세 보기">
+                    {% if post.head_image %}
+                        <img class="post-thumbnail" src="{{ post.head_image.url }}" alt="{{ post.title }} 대표 이미지">
+                    {% else %}
+                        <img class="post-thumbnail" src="{% static 'single_pages/images/default-post.svg' %}" alt="대표 이미지 없음">
+                    {% endif %}
+                </a>
+                <div>
+                    <div class="post-number">#{{ post.pk|stringformat:"02d" }}</div>
+                    <h2>{{ post.title }}</h2>
+                    <div class="taxonomy-row">
+                        {% if post.category %}
+                            <a class="category-badge" href="{{ post.category.get_absolute_url }}">{{ post.category.name }}</a>
+                        {% else %}
+                            <a class="category-badge muted-badge" href="{% url 'blog:category-page' 'no-category' %}">미분류</a>
+                        {% endif %}
+                        {% for item in post.tags.all %}
+                            <a class="tag-badge" href="{{ item.get_absolute_url }}">#{{ item.name }}</a>
+                        {% endfor %}
+                    </div>
+                    <p>{{ post.content|truncatechars:100 }}</p>
+                    <small>{{ post.created_at|date:"Y.m.d H:i" }}</small>
+                </div>
+                <a href="{{ post.get_absolute_url }}">Read more →</a>
+            </article>
+        {% empty %}
+            <div class="empty-state">
+                <h2>조건에 맞는 게시글이 없습니다</h2>
+                <p>다른 카테고리나 태그를 선택하거나 Admin 페이지에서 게시글을 작성해 주세요.</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

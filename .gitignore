@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 db.sqlite3
 hw13/media/
+hw14/media/
 
 # Local environments and editor settings
 .venv/

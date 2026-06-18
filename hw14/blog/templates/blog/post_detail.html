@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ post.title }} · Zoe's Django Journal{% endblock %}
+
+{% block content %}
+<section class="container section narrow">
+    <a class="back-link" href="{% url 'blog:post-list' %}">← 게시글 목록</a>
+    <article class="post-detail">
+        <p class="eyebrow">POST #{{ post.pk }}</p>
+        <h1>{{ post.title }}</h1>
+        <p class="post-meta">작성 {{ post.created_at|date:"Y.m.d H:i" }} · 수정 {{ post.updated_at|date:"Y.m.d H:i" }}</p>
+        <div class="taxonomy-row detail-taxonomy">
+            {% if post.category %}
+                <a class="category-badge" href="{{ post.category.get_absolute_url }}">{{ post.category.name }}</a>
+            {% else %}
+                <a class="category-badge muted-badge" href="{% url 'blog:category-page' 'no-category' %}">미분류</a>
+            {% endif %}
+            {% for item in post.tags.all %}
+                <a class="tag-badge" href="{{ item.get_absolute_url }}">#{{ item.name }}</a>
+            {% endfor %}
+        </div>
+
+        {% if post.head_image %}
+            <img class="post-hero-image" src="{{ post.head_image.url }}" alt="{{ post.title }} 대표 이미지">
+        {% else %}
+            <img class="post-hero-image" src="{% static 'single_pages/images/default-post.svg' %}" alt="대표 이미지 없음">
+        {% endif %}
+
+        <div class="post-content">{{ post.content }}</div>
+
+        {% if post.file_upload %}
+            <div class="attachment">
+                <div>
+                    <span class="file-extension">{{ post.get_file_ext|upper|default:"FILE" }}</span>
+                    <strong>{{ post.get_file_name }}</strong>
+                </div>
+                <a class="button secondary" href="{{ post.file_upload.url }}" download>첨부파일 다운로드</a>
+            </div>
+        {% endif %}
+
+        <nav class="category-card detail-categories" aria-label="카테고리 목록">
+            <strong>다른 카테고리 보기</strong>
+            <div class="category-links">
+                {% for item in categories %}
+                    <a href="{{ item.get_absolute_url }}">{{ item.name }} ({{ item.posts.count }})</a>
+                {% endfor %}
+                <a href="{% url 'blog:category-page' 'no-category' %}">미분류 ({{ no_category_post_count }})</a>
+            </div>
+        </nav>
+    </article>
+</section>
+{% endblock %}

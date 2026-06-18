@@ -84,12 +84,18 @@ softeng_2026
 │   ├── config/            # Django project settings and root URLs
 │   ├── single_pages/      # Landing and About pages
 │   └── blog/              # Post Model, Admin, ListView and DetailView
-└── hw13/                  # Assignment 13: Django media file management
+├── hw13/                  # Assignment 13: Django media file management
     ├── README.md
     ├── manage.py
     ├── config/            # Media settings and root URLs
     ├── single_pages/      # Shared pages, CSS and default image
     └── blog/              # ImageField, FileField and media templates
+└── hw14/                  # Assignment 14: Django categories and tags
+    ├── README.md
+    ├── manage.py
+    ├── config/
+    ├── single_pages/
+    └── blog/              # Category, Tag and filtered post pages
 ```
 
 Assignment folders follow the assignment number: `hw01` is Assignment 01,
@@ -115,13 +121,14 @@ missing numbers have not been uploaded yet.
 | 11 | Django Todo List with ORM and SQLite | [hw11](./hw11) |
 | 12 | Django database blog with ListView and DetailView | [hw12](./hw12) |
 | 13 | Django image upload and attachment download | [hw13](./hw13) |
+| 14 | Django categories, tags and filtered post pages | [hw14](./hw14) |
 
 ## ✨ Latest Assignment
 
-**[Assignment 13: Django Media Files](./hw13/README.md)** extends the database
-blog with representative image uploads, a dependable default image, general
-file attachments and download links. Uploaded files are managed through Django
-Admin and displayed in responsive list and detail pages.
+**[Assignment 14: Django Categories and Tags](./hw14/README.md)** extends the
+media blog with one category and multiple tags per post. Category, tag and
+uncategorized pages filter posts through readable slug URLs while preserving
+the image upload and attachment features from Assignment 13.
 
 ---
 
@@ -140,6 +147,7 @@ Admin and displayed in responsive list and detail pages.
 - [Assignment 11: Django Todo List](./hw11/README.md)
 - [Assignment 12: Django Blog List and Detail](./hw12/README.md)
 - [Assignment 13: Django Media File Management](./hw13/README.md)
+- [Assignment 14: Django Categories and Tags](./hw14/README.md)
 
 Each assignment folder contains its source code and, where applicable, a
 dedicated README with usage instructions and implementation notes.
