@@ -51,6 +51,12 @@ softeng_2026
 │   ├── sum_even_numbers.py
 │   ├── test_hw02.py
 │   └── unit_converter.py
+├── hw03/                  # Assignment 03: Streamlit GUI
+│   ├── README.md
+│   ├── app.py
+│   ├── demo.gif
+│   ├── requirements.txt
+│   └── test_app.py
 ├── hw04/                  # Assignment 04
 ├── hw05/                  # Assignment 05
 ├── hw06/                  # Assignment 06
@@ -71,7 +77,7 @@ missing numbers have not been uploaded yet.
 |------------|-------------|--------|
 | 01 | Self introduction and course goals | [hw01](./hw01) |
 | 02 | Python basic programming exercises | [hw02](./hw02) |
-| 03 | Not uploaded yet | - |
+| 03 | Streamlit GUI for the Python exercises | [hw03](./hw03) |
 | 04 | Web application exercise | [hw04](./hw04) |
 | 05 | HTML/CSS pages | [hw05](./hw05) |
 | 06 | Multiplication table web app | [hw06](./hw06) |
@@ -85,6 +91,7 @@ missing numbers have not been uploaded yet.
 
 - [Assignment 01: Self introduction](./hw01/assignment01.md)
 - [Assignment 02: Python basics](./hw02/README.md)
+- [Assignment 03: Streamlit GUI](./hw03/README.md)
 
 Each assignment folder contains its source code and, where applicable, a
 dedicated README with usage instructions and implementation notes.
