@@ -1,0 +1,73 @@
+:root {
+    --page-background: #f5f7f4;
+    --ink: #173125;
+    --accent: #21834f;
+    --accent-dark: #17623a;
+    --line: #dce6df;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    background: var(--page-background);
+    color: var(--ink);
+    font-family: Arial, "Noto Sans KR", sans-serif;
+}
+
+.site-header { background: rgba(255, 255, 255, 0.96); }
+.navbar-brand { font-size: 1.5rem; letter-spacing: 0.08em; }
+.nav-pills .nav-link { color: var(--ink); }
+.nav-pills .nav-link.active { background: var(--accent); }
+
+.hero-section {
+    background: linear-gradient(135deg, #eef7ef 0%, #f9f4e8 100%);
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.profile-card, .welcome-card, .feature-card, .story-card, .post-card {
+    border-radius: 1rem;
+}
+
+.profile-mark {
+    align-items: center;
+    background: var(--accent);
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: 700;
+    height: 4.5rem;
+    justify-content: center;
+    width: 4.5rem;
+}
+
+dl dd { margin-bottom: 0; text-align: right; }
+.feature-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.feature-card:hover { transform: translateY(-4px); }
+.message { color: var(--accent-dark); font-weight: 700; }
+.message.error { color: #b02a37; }
+.story-number { color: var(--accent); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; }
+.story-card { scroll-margin-top: 1rem; }
+.post-card.featured { border-left: 5px solid var(--accent) !important; }
+.site-footer { background: #173125; color: #dce6df; }
+
+@media (max-width: 575.98px) {
+    .navbar { align-items: center; flex-wrap: nowrap; }
+    .navbar-brand { font-size: 1.15rem; margin-right: 0.4rem; }
+    .nav-pills .nav-link { font-size: 0.86rem; padding: 0.45rem 0.55rem; }
+    .display-4 { font-size: 2.35rem; }
+    .input-group { display: block; }
+    .input-group .form-control, .input-group-append, .input-group-append .btn { border-radius: 0.25rem !important; width: 100%; }
+    .input-group-append { margin-left: 0; margin-top: 0.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .feature-card { transition: none; }
+}

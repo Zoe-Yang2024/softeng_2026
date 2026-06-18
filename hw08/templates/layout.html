@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ description }}">
+    <title>{{ title }} | Zoe Yang</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='main.js') }}" defer></script>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header class="site-header shadow-sm">
+        <nav class="navbar navbar-light container py-3" aria-label="주요 메뉴">
+            <a class="navbar-brand font-weight-bold" href="{{ url_for('home') }}">ZOE<span class="text-success">.</span></a>
+            <div class="nav nav-pills flex-nowrap">
+                <a class="nav-link{% if active_page == 'home' %} active{% endif %}" href="{{ url_for('home') }}">Home</a>
+                <a class="nav-link{% if active_page == 'about' %} active{% endif %}" href="{{ url_for('about') }}">About</a>
+                <a class="nav-link{% if active_page == 'blog' %} active{% endif %}" href="{{ url_for('blog') }}">Blog</a>
+            </div>
+        </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer class="site-footer mt-auto py-4">
+        <div class="container d-sm-flex justify-content-between text-center text-sm-left">
+            <p class="mb-1 mb-sm-0">© 2026 Zoe Yang</p>
+            <p class="mb-0">{% block footer_text %}Smart Farm · Software · Cooperation{% endblock %}</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -109,6 +109,7 @@ missing numbers have not been uploaded yet.
 - [Assignment 05: Personal homepage](./hw05/README.md)
 - [Assignment 06: Flask template application](./hw06/README.md)
 - [Assignment 07: Flask personal homepage](./hw07/README.md)
+- [Assignment 08: Bootstrap personal homepage](./hw08/README.md)
 
 Each assignment folder contains its source code and, where applicable, a
 dedicated README with usage instructions and implementation notes.
