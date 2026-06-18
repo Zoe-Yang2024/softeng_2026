@@ -1,0 +1,19 @@
+{% extends "todo/base.html" %}
+
+{% block title %}새 목록 · Assignment 11{% endblock %}
+
+{% block content %}
+<section class="form-card narrow">
+    <p class="eyebrow">NEW LIST</p>
+    <h1>새 할 일 목록</h1>
+    <p>공부, 장보기처럼 함께 관리할 일의 이름을 적어 주세요.</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="actions">
+            <button class="button primary" type="submit">저장하기</button>
+            <a class="button ghost" href="{% url 'todo:index' %}">취소</a>
+        </div>
+    </form>
+</section>
+{% endblock %}

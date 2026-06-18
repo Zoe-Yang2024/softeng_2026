@@ -1,0 +1,57 @@
+{% extends "todo/base.html" %}
+
+{% block title %}{{ todo_list.title }} · Assignment 11{% endblock %}
+
+{% block content %}
+<a class="back-link" href="{% url 'todo:index' %}">← 모든 목록</a>
+
+<section class="page-heading detail-heading">
+    <div>
+        <p class="eyebrow">TODO ITEMS</p>
+        <h1>{{ todo_list.title }}</h1>
+        <p>완료한 항목은 줄이 그어져 표시됩니다.</p>
+    </div>
+    <form action="{% url 'todo:list-delete' todo_list.id %}" method="post">
+        {% csrf_token %}
+        <button class="button danger" type="submit">목록 삭제</button>
+    </form>
+</section>
+
+<section class="form-card">
+    <h2>새 할 일 추가</h2>
+    <form action="{% url 'todo:item-add' todo_list.id %}" method="post">
+        {% csrf_token %}
+        {{ item_form.as_p }}
+        <button class="button primary" type="submit">할 일 추가</button>
+    </form>
+</section>
+
+<section class="items" aria-label="할 일">
+    {% for item in todo_list.items.all %}
+        <article class="item{% if item.completed %} completed{% endif %}">
+            <div class="item-copy">
+                <h2>{{ item.title }}</h2>
+                {% if item.description %}<p>{{ item.description }}</p>{% endif %}
+                <small>기한 {{ item.due_date|date:"Y.m.d H:i" }}</small>
+            </div>
+            <div class="item-actions">
+                <form action="{% url 'todo:item-toggle' item.id %}" method="post">
+                    {% csrf_token %}
+                    <button class="button secondary" type="submit">
+                        {% if item.completed %}되돌리기{% else %}완료{% endif %}
+                    </button>
+                </form>
+                <form action="{% url 'todo:item-delete' item.id %}" method="post">
+                    {% csrf_token %}
+                    <button class="button danger" type="submit">삭제</button>
+                </form>
+            </div>
+        </article>
+    {% empty %}
+        <div class="empty-state">
+            <h2>아직 할 일이 없습니다</h2>
+            <p>위 입력창에서 첫 번째 할 일을 추가해 보세요.</p>
+        </div>
+    {% endfor %}
+</section>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Assignment 11 Todo{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'todo/style.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="{% url 'todo:index' %}">My Todo</a>
+        <span>Assignment 11 · Django ORM</span>
+    </header>
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+    <footer>Django로 만드는 작은 할 일 관리 앱</footer>
+</body>
+</html>

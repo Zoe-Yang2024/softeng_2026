@@ -1,0 +1,32 @@
+{% extends "todo/base.html" %}
+
+{% block title %}할 일 목록 · Assignment 11{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <div>
+        <p class="eyebrow">TODO LISTS</p>
+        <h1>내 할 일 목록</h1>
+        <p>목록을 만들고 해야 할 일을 차근차근 관리해 보세요.</p>
+    </div>
+    <a class="button primary" href="{% url 'todo:list-add' %}">새 목록 만들기</a>
+</section>
+
+<section class="card-grid" aria-label="할 일 목록">
+    {% for todo_list in lists %}
+        <article class="card">
+            <div>
+                <p class="count">전체 {{ todo_list.items.count }}개</p>
+                <h2>{{ todo_list.title }}</h2>
+                <p>{{ todo_list.created_at|date:"Y.m.d" }}에 만든 목록</p>
+            </div>
+            <a class="button secondary" href="{% url 'todo:detail' todo_list.id %}">목록 열기</a>
+        </article>
+    {% empty %}
+        <div class="empty-state">
+            <h2>아직 목록이 없습니다</h2>
+            <p>첫 번째 목록을 만들면 여기에 표시됩니다.</p>
+        </div>
+    {% endfor %}
+</section>
+{% endblock %}
