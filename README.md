@@ -39,6 +39,7 @@ Main topics of the course include:
 ```text
 softeng_2026
 ├── README.md
+├── docs/                  # GitHub Pages: Assignment 05 website
 ├── hw01/                  # Assignment 01: Self introduction
 │   └── assignment01.md
 ├── hw02/                  # Assignment 02: Python basics
@@ -64,7 +65,13 @@ softeng_2026
 │   ├── static/
 │   ├── templates/
 │   └── tests/
-├── hw05/                  # Assignment 05
+├── hw05/                  # Assignment 05: Personal homepage
+│   ├── README.md
+│   ├── index.html
+│   ├── about_me.html
+│   ├── blog_list.html
+│   ├── assets/
+│   └── tests/
 ├── hw06/                  # Assignment 06
 ├── hw07/                  # Assignment 07
 ├── hw08/                  # Assignment 08
@@ -99,6 +106,7 @@ missing numbers have not been uploaded yet.
 - [Assignment 02: Python basics](./hw02/README.md)
 - [Assignment 03: Streamlit GUI](./hw03/README.md)
 - [Assignment 04: Flask web application](./hw04/README.md)
+- [Assignment 05: Personal homepage](./hw05/README.md)
 
 Each assignment folder contains its source code and, where applicable, a
 dedicated README with usage instructions and implementation notes.
