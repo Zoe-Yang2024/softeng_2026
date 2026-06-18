@@ -14,8 +14,7 @@ Smart Farm Department
 
 - [Course Introduction](#course-introduction)
 - [Repository Structure](#repository-structure)
-- [Weekly Assignments](#weekly-assignments)
-- [Assignment 01](#assignment-01)
+- [Assignments](#assignments)
 
 ---
 
@@ -40,60 +39,55 @@ Main topics of the course include:
 ```text
 softeng_2026
 ├── README.md
-├── hw01
+├── hw01/                  # Assignment 01: Self introduction
 │   └── assignment01.md
-├── hw02
+├── hw02/                  # Assignment 02: Python basics
+│   ├── README.md
 │   ├── even_odd.py
-│   ├── temperature_convert.py
-│   └── gugudan.py
-├── hw03
-├── hw04
-├── hw05
-├── hw06
-├── hw07
-├── hw08
-├── hw09
-├── hw10
-├── hw11
-├── hw12
-├── hw13
-├── hw14
-└── hw15
+│   ├── factorial.py
+│   ├── gugudan.py
+│   ├── is_prime.py
+│   ├── prime_numbers.py
+│   ├── sum_even_numbers.py
+│   ├── test_hw02.py
+│   └── unit_converter.py
+├── hw04/                  # Assignment 04
+├── hw05/                  # Assignment 05
+├── hw06/                  # Assignment 06
+├── hw07/                  # Assignment 07
+├── hw08/                  # Assignment 08
+└── hw09/                  # Assignment 09
 ```
 
-> Folders for future assignments are prepared in advance and will be updated weekly.
+Assignment folders follow the assignment number: `hw01` is Assignment 01,
+`hw02` is Assignment 02, and so on. A folder is added when its work is ready;
+missing numbers have not been uploaded yet.
 
 ---
 
-# 🗂 Weekly Assignments
+# 🗂 Assignments
 
-| Week | Topic | Folder |
-|------|------|------|
-| Week 01 | Course Introduction | [hw01](./hw01) |
-| Week 02 | Python Basic Review | hw02 |
-| Week 03 | Web Basics (HTML, CSS, JS) | hw03 |
-| Week 04 | Web UI (Tailwind, DaisyUI) | [hw04](./hw04) |
-| Week 05 | GitHub Pages | [hw05](./hw05) |
-| Week 06 | Django Setup | [hw06](./hw06) |
-| Week 07 | Django Apps | [hw07](./hw07)|
-| Week 08 | Web Application | [hw08](./hw08) |
-| Week 09 | Gemini API | [hw09](./hw09) |
-| Week 10 | Django Blog | hw10 |
-| Week 11 | MTV Architecture | hw11 |
-| Week 12 | Web Design | hw12 |
-| Week 13 | RAG & Local LLM | hw13 |
-| Week 14 | Deployment | hw14 |
-| Week 15 | Final Project | hw15 |
+| Assignment | Description | Folder |
+|------------|-------------|--------|
+| 01 | Self introduction and course goals | [hw01](./hw01) |
+| 02 | Python basic programming exercises | [hw02](./hw02) |
+| 03 | Not uploaded yet | - |
+| 04 | Web application exercise | [hw04](./hw04) |
+| 05 | HTML/CSS pages | [hw05](./hw05) |
+| 06 | Multiplication table web app | [hw06](./hw06) |
+| 07 | Flask website | [hw07](./hw07) |
+| 08 | Bootstrap website | [hw08](./hw08) |
+| 09 | Django Todo application | [hw09](./hw09) |
 
 ---
 
-# 👨‍🎓 Assignment 01
+# 👨‍🎓 Assignment Details
 
-Detailed self-introduction and course motivation:
+- [Assignment 01: Self introduction](./hw01/assignment01.md)
+- [Assignment 02: Python basics](./hw02/README.md)
 
-➡️ [Go to Assignment 01](./hw01/assignment01.md)
-
----
+Each assignment folder contains its source code and, where applicable, a
+dedicated README with usage instructions and implementation notes.
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue)  
 ![Course](https://img.shields.io/badge/Course-Applied%20Software%20Development-green)
