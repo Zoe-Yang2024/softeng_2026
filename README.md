@@ -76,7 +76,13 @@ softeng_2026
 ├── hw07/                  # Assignment 07: Flask personal homepage
 ├── hw08/                  # Assignment 08: Bootstrap website
 ├── hw09/                  # Assignment 09: Flask CSV blog
-└── hw10/                  # Assignment 10: Django personal homepage
+├── hw10/                  # Assignment 10: Django personal homepage
+└── hw11/                  # Assignment 11: Django Todo List
+    ├── README.md
+    ├── manage.py
+    ├── requirements.txt
+    ├── config/            # Django project settings and root URLs
+    └── todo/              # Models, forms, views, templates and tests
 ```
 
 Assignment folders follow the assignment number: `hw01` is Assignment 01,
@@ -99,6 +105,14 @@ missing numbers have not been uploaded yet.
 | 08 | Bootstrap website | [hw08](./hw08) |
 | 09 | Flask CSV blog | [hw09](./hw09) |
 | 10 | Django personal homepage | [hw10](./hw10) |
+| 11 | Django Todo List with ORM and SQLite | [hw11](./hw11) |
+
+## ✨ Latest Assignment
+
+**[Assignment 11: Django Todo List](./hw11/README.md)** is a database-backed
+web application. It supports creating todo lists, adding tasks, marking tasks
+complete, and deleting tasks or lists. The project demonstrates Django Models,
+ORM, SQLite, ModelForm, migrations, CSRF protection, Admin and automated tests.
 
 ---
 
@@ -114,6 +128,7 @@ missing numbers have not been uploaded yet.
 - [Assignment 08: Bootstrap personal homepage](./hw08/README.md)
 - [Assignment 09: Flask CSV blog](./hw09/README.md)
 - [Assignment 10: Django personal homepage](./hw10/README.md)
+- [Assignment 11: Django Todo List](./hw11/README.md)
 
 Each assignment folder contains its source code and, where applicable, a
 dedicated README with usage instructions and implementation notes.
