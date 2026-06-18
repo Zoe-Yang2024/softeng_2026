@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>구구단</title>
-</head>
-<body>
+{% extends 'layout.html' %}
+
+{% block title %}구구단 입력{% endblock %}
+
+{% block content %}
     <h1>구구단 출력</h1>
-
-    <form method="get" action="/gugudan">
-        단:
-        <input type="text" name="dan" value=""> 
+    <p>2부터 9까지 원하는 단을 입력하세요.</p>
+    <form method="get" action="{{ url_for('gugudan') }}">
+        <label for="dan">단</label>
+        <input id="dan" type="number" name="dan" min="2" max="9" required>
         <button type="submit">출력</button>
-    </form> 
-
-</body>
-</html>
+    </form>
+{% endblock %}

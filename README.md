@@ -72,8 +72,8 @@ softeng_2026
 │   ├── blog_list.html
 │   ├── assets/
 │   └── tests/
-├── hw06/                  # Assignment 06
-├── hw07/                  # Assignment 07
+├── hw06/                  # Assignment 06: Flask template application
+├── hw07/                  # Assignment 07: Flask personal homepage
 ├── hw08/                  # Assignment 08
 └── hw09/                  # Assignment 09
 ```
@@ -107,6 +107,8 @@ missing numbers have not been uploaded yet.
 - [Assignment 03: Streamlit GUI](./hw03/README.md)
 - [Assignment 04: Flask web application](./hw04/README.md)
 - [Assignment 05: Personal homepage](./hw05/README.md)
+- [Assignment 06: Flask template application](./hw06/README.md)
+- [Assignment 07: Flask personal homepage](./hw07/README.md)
 
 Each assignment folder contains its source code and, where applicable, a
 dedicated README with usage instructions and implementation notes.

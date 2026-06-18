@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | 주조양의 홈페이지</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>주조양의 개인 홈페이지</h1>
+        <nav aria-label="주요 메뉴">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('about') }}">About Me</a>
+            <a href="{{ url_for('blog') }}">Blog</a>
+        </nav>
+    </header>
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+    <footer><p>© 2026 Zhaoyang Zhu</p></footer>
+</body>
+</html>
