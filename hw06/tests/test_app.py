@@ -38,6 +38,7 @@ class Assignment06Tests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn("구구단 7단", body)
         self.assertIn("7 × 9 = 63", body)
+        self.assertEqual(body.count("<li>"), 9)
 
     def test_invalid_multiplication_table(self) -> None:
         for value in ("", "abc", "1", "10"):

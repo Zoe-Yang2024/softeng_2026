@@ -3,21 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} | 주조양의 홈페이지</title>
+    <meta name="description" content="{{ description }}">
+    <title>{{ title }} | Zoe Yang</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='main.js') }}" defer></script>
 </head>
 <body>
-    <header>
-        <h1>주조양의 개인 홈페이지</h1>
-        <nav aria-label="주요 메뉴">
-            <a href="{{ url_for('index') }}">Home</a>
-            <a href="{{ url_for('about') }}">About Me</a>
-            <a href="{{ url_for('blog') }}">Blog</a>
+    <header class="site-header">
+        <nav class="nav-shell" aria-label="주요 메뉴">
+            <a class="brand" href="{{ url_for('index') }}">ZOE<span>.</span></a>
+            <div class="nav-links">
+                <a{% if active_page == 'home' %} class="active" aria-current="page"{% endif %} href="{{ url_for('index') }}">Home</a>
+                <a{% if active_page == 'about' %} class="active" aria-current="page"{% endif %} href="{{ url_for('about') }}">About Me</a>
+                <a{% if active_page == 'blog' %} class="active" aria-current="page"{% endif %} href="{{ url_for('blog') }}">Blog</a>
+            </div>
         </nav>
     </header>
-    <main class="container">
-        {% block content %}{% endblock %}
-    </main>
-    <footer><p>© 2026 Zhaoyang Zhu</p></footer>
+    {% block content %}{% endblock %}
+    <footer class="site-footer">
+        <div class="page-shell footer-inner">
+            <p>© 2026 Zoe Yang</p>
+            <p>{% block footer_text %}Smart Farm · Software · Cooperation{% endblock %}</p>
+        </div>
+    </footer>
 </body>
 </html>

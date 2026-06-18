@@ -19,9 +19,9 @@ class Assignment07Tests(unittest.TestCase):
 
     def test_required_routes(self) -> None:
         expected_text = {
-            "/": "환영합니다",
-            "/about": "자기소개",
-            "/blog": "최근 글",
+            "/": "농업의 미래",
+            "/about": "농촌에서 시작된 이야기",
+            "/blog": "작은 배움과",
         }
         for route, text in expected_text.items():
             with self.subTest(route=route):
@@ -42,12 +42,31 @@ class Assignment07Tests(unittest.TestCase):
     def test_blog_data_is_rendered(self) -> None:
         body = self.client.get("/blog").get_data(as_text=True)
         posts = (
-            "스마트팜에 관심을 가지게 된 이유",
-            "응용소프트웨어개발 수업에서 배우고 싶은 것",
-            "처음 만들어 본 개인 홈페이지",
+            "Assignment 05 완료",
+            "친구와 외식",
+            "콜라 닭다리 도전",
         )
         for post in posts:
             self.assertIn(post, body)
+        self.assertEqual(body.count('class="post-card'), 7)
+
+    def test_hw05_personal_content_is_preserved(self) -> None:
+        home = self.client.get("/").get_data(as_text=True)
+        about = self.client.get("/about").get_data(as_text=True)
+        self.assertIn("농업의 미래", home)
+        self.assertIn('id="welcome-form"', home)
+        self.assertIn("농촌에서 시작된 이야기", about)
+        self.assertIn("기술과 지능이 결합된 농장", about)
+
+    def test_safe_javascript_is_available(self) -> None:
+        response = self.client.get("/static/main.js")
+        try:
+            body = response.get_data(as_text=True)
+            self.assertEqual(response.status_code, 200)
+            self.assertIn("textContent", body)
+            self.assertNotIn("innerHTML", body)
+        finally:
+            response.close()
 
     def test_static_css_is_available(self) -> None:
         response = self.client.get("/static/style.css")

@@ -1,9 +1,54 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <section class="card">
-        <h2>환영합니다</h2>
-        <p>안녕하세요. 전북대학교 스마트팜학과에 재학 중인 유학생 주조양입니다.</p>
-        <p>이 홈페이지는 응용소프트웨어개발 과제를 위해 만든 개인 홈페이지입니다.</p>
+<main>
+    <section class="hero page-shell">
+        <div class="hero-copy">
+            <p class="eyebrow">SMART FARM STUDENT · WEB BEGINNER</p>
+            <h1>기술로 더 나은<br><span>농업의 미래</span>를 꿈꿉니다.</h1>
+            <p class="hero-description">
+                안녕하세요. 전북대학교 스마트팜학과에서 공부하는 주조양입니다.
+                이곳은 HTML, CSS와 JavaScript에 Flask와 Jinja를 더해 만든 개인 홈페이지입니다.
+            </p>
+            <div class="hero-actions">
+                <a class="button primary" href="{{ url_for('about') }}">저에 대해 알아보기</a>
+                <a class="button secondary" href="{{ url_for('blog') }}">최근 기록 보기</a>
+            </div>
+        </div>
+        <aside class="profile-card" aria-label="간단한 프로필">
+            <div class="profile-mark" aria-hidden="true">ZY</div>
+            <p class="profile-label">CURRENTLY</p>
+            <h2>Learning & Growing</h2>
+            <dl>
+                <div><dt>Major</dt><dd>Smart Farm</dd></div>
+                <div><dt>Interest</dt><dd>Software · Agriculture</dd></div>
+                <div><dt>Goal</dt><dd>Build a Smart Farm</dd></div>
+            </dl>
+        </aside>
     </section>
+
+    <section class="welcome-section page-shell" aria-labelledby="welcome-title">
+        <div>
+            <p class="section-kicker">A SMALL INTERACTION</p>
+            <h2 id="welcome-title">이름을 알려주세요</h2>
+            <p>버튼을 누르면 안전한 JavaScript DOM 조작으로 환영 메시지를 보여드립니다.</p>
+        </div>
+        <form id="welcome-form" class="welcome-form">
+            <label for="user-name">Your name</label>
+            <div class="input-row">
+                <input id="user-name" name="name" type="text" maxlength="40" placeholder="이름을 입력하세요" autocomplete="name" required>
+                <button type="submit">Say hello</button>
+            </div>
+            <div id="message-area" class="message-area" aria-live="polite"></div>
+        </form>
+    </section>
+
+    <section class="feature-grid page-shell" aria-label="홈페이지 안내">
+        <article class="feature-card"><span>01</span><h2>My Story</h2><p>농촌에서 보낸 어린 시절부터 스마트팜을 공부하는 현재까지의 이야기입니다.</p><a href="{{ url_for('about') }}">이야기 읽기 →</a></article>
+        <article class="feature-card"><span>02</span><h2>Learning Log</h2><p>웹 개발 과제와 평범한 일상에서 배우고 느낀 내용을 기록합니다.</p><a href="{{ url_for('blog') }}">기록 보기 →</a></article>
+        <article class="feature-card"><span>03</span><h2>My Vision</h2><p>기술과 농업을 연결해 더 지속 가능하고 협력적인 미래를 만들고 싶습니다.</p><a href="{{ url_for('about') }}#vision">꿈 알아보기 →</a></article>
+    </section>
+</main>
 {% endblock %}
+
+{% block footer_text %}Built with Flask · Jinja · JavaScript{% endblock %}

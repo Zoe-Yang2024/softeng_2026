@@ -29,7 +29,9 @@ hw06/
 
 템플릿에서는 하드 코딩한 주소 대신 `url_for()`를 사용했습니다.
 입력값은 2부터 9까지만 허용하며, 비어 있거나 문자인 경우에도 사용자가
-이해할 수 있는 오류 메시지를 보여줍니다.
+이해할 수 있는 오류 메시지를 보여줍니다. Python에서 각 곱셈의 숫자와
+결과를 딕셔너리 리스트로 만든 뒤 템플릿에 전달하므로, 템플릿은 계산하지
+않고 화면 출력에 집중합니다.
 
 ## 설치 및 실행
 
@@ -57,5 +59,9 @@ python -m unittest discover -s hw06/tests -p "test_*.py" -v
 - 사용 도구: OpenAI Codex
 - 사용 목적: 기존 과제 분석, Flask 템플릿 구조 정리, 입력 검증,
   반응형 CSS, 자동 테스트 및 README 작성
-- 사용 프롬프트 요약: "기존 Assignment 06의 구구단 기능을 유지하면서
-  4주차 수업의 템플릿, static, url_for, Jinja 문법에 맞게 개선해 주세요."
+- 사용 프롬프트: "기존 Assignment 06의 구구단 기능을 유지하면서 4주차
+  수업의 Flask render_template, templates/static 분리, layout.html 템플릿
+  상속, url_for, Jinja for/if 문법에 맞게 개선해 주세요. 입력은 2~9로
+  검증하고, Python에서 곱셈 결과 리스트를 만들어 템플릿에 전달해 주세요.
+  README, requirements.txt와 자동 테스트도 작성하고 기존의 다른 과제는
+  수정하지 마세요."

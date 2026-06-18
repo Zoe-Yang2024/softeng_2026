@@ -1,11 +1,39 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <section class="card">
-        <h2>자기소개</h2>
-        <p>이름: 주조양</p>
-        <p>학과: 스마트팜학과</p>
-        <p>학교: 전북대학교</p>
-        <p>관심 분야: 스마트팜, 농업, AI</p>
-    </section>
+<main class="page-shell content-page">
+    <header class="page-intro">
+        <p class="eyebrow">ABOUT ME</p>
+        <h1>안녕하세요,<br>주조양입니다.</h1>
+        <p>중국에서 온 유학생이며 전북대학교 스마트팜학과에서 공부하고 있습니다. 농업과 기술이 만나는 지점에서 저만의 미래를 만들어가고 있습니다.</p>
+    </header>
+    <div class="story-layout">
+        <aside class="story-index" aria-label="이야기 목차">
+            <p>MY JOURNEY</p>
+            <a href="#beginning">시작</a><a href="#agriculture">농업과 미래</a><a href="#vision">나의 꿈</a><a href="#now">지금의 나</a>
+        </aside>
+        <div class="story-content">
+            <section id="beginning" class="story-section">
+                <span class="story-number">01</span><h2>농촌에서 시작된 이야기</h2>
+                <p>저는 중국의 한 농촌에서 태어나 어린 시절을 자연 속에서 보냈습니다. 중학교에 들어가기 전까지 제 주변에는 늘 푸른 들판과 생명이 가득했습니다.</p>
+                <p>고등학교 시절 선생님께서 나누어 주신 대학 엽서 중 제가 뽑은 학교는 중국농업대학교였습니다. 당시에는 우연이라고 생각했지만, 지금 돌아보면 미래를 향한 작은 신호였던 것 같기도 합니다.</p>
+            </section>
+            <section id="agriculture" class="story-section">
+                <span class="story-number">02</span><h2>농업과 우리의 미래</h2>
+                <p>지금 저는 한국에서 스마트팜을 공부합니다. 가까운 가족들도 농업기계와 생물학을 공부하고 있어, 언젠가 함께 농업 팀을 만들 수 있지 않을까 하는 즐거운 상상도 합니다.</p>
+                <blockquote>식량 문제는 한 나라만의 문제가 아닙니다. 경쟁보다 서로의 기술과 경험을 나누는 협력이 더 중요하다고 생각합니다.</blockquote>
+            </section>
+            <section id="vision" class="story-section">
+                <span class="story-number">03</span><h2>기술과 지능이 결합된 농장</h2>
+                <p>제 꿈은 언젠가 저만의 농장을 가지는 것입니다. 단순한 농장이 아니라 데이터와 자동화 기술을 활용해 환경적인 어려움을 해결하는 스마트 농장을 만들고 싶습니다.</p>
+                <p>스마트 농업 기술이 아직 개발되지 않은 토지를 더 지속 가능한 방식으로 활용하는 데 중요한 역할을 할 수 있다고 믿습니다.</p>
+            </section>
+            <section id="now" class="story-section">
+                <span class="story-number">04</span><h2>배우고 성장하는 지금</h2>
+                <p>아직 부족한 부분이 많지만 조금씩 더 나아지기 위해 노력하고 있습니다. 지금의 시간을 소중히 여기며 더 많이 배우고, 언젠가는 사람들이 먹을 것을 걱정하지 않는 미래에 작은 도움을 보태고 싶습니다.</p>
+                <p class="closing-note">방문해 주셔서 감사합니다.</p>
+            </section>
+        </div>
+    </div>
+</main>
 {% endblock %}

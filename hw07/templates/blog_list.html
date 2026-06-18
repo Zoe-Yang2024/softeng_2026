@@ -1,20 +1,29 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <section class="card">
-        <h2>최근 글</h2>
+<main class="page-shell content-page">
+    <header class="page-intro compact">
+        <p class="eyebrow">LEARNING & DAILY LOG</p>
+        <h1>작은 배움과<br>평범한 하루의 기록</h1>
+        <p>웹 개발을 배우는 과정과 일상에서 기억하고 싶은 순간을 남깁니다.</p>
+    </header>
+    <section class="post-list" aria-label="블로그 글 목록">
         {% if posts %}
-            <ul>
-                {% for post in posts %}
-                    <li>{{ post }}</li>
-                {% endfor %}
-            </ul>
+            {% for post in posts %}
+            <article class="post-card{% if post.featured %} featured{% endif %}">
+                <div class="post-meta">
+                    <span>{{ post.category }}</span>
+                    <time datetime="{{ post.datetime }}">{{ post.date }}</time>
+                </div>
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.content }}</p>
+            </article>
+            {% endfor %}
         {% else %}
             <p>아직 작성된 글이 없습니다.</p>
         {% endif %}
     </section>
-    <section class="card">
-        <h2>한 줄 기록</h2>
-        <p>아직은 많이 부족하지만, 하나씩 배우면서 발전하고 있습니다.</p>
-    </section>
+</main>
 {% endblock %}
+
+{% block footer_text %}Learning one small step at a time.{% endblock %}

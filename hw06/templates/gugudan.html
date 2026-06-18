@@ -9,8 +9,8 @@
     {% else %}
         <h1>구구단 {{ dan }}단 결과</h1>
         <ul class="result-list">
-            {% for i in range(1, 10) %}
-                <li>{{ dan }} × {{ i }} = {{ dan * i }}</li>
+            {% for row in rows %}
+                <li>{{ dan }} × {{ row.number }} = {{ row.result }}</li>
             {% endfor %}
         </ul>
     {% endif %}
