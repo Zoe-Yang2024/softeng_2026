@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}New Diary Entry · Smart Plant Care{% endblock %}
+
+{% block content %}
+<section class="form-page shell">
+    <a class="back-link" href="{% url 'plant_care:diary-list' %}">← Back to Plant Diary</a>
+    <div class="form-layout">
+        <aside class="form-intro">
+            <p class="eyebrow"><span></span> NEW OBSERVATION</p>
+            <h1>Record<br><em>today’s growth.</em></h1>
+            <p>오늘의 식물 상태와 환경 데이터를 기록하세요.<br>记录今天的植物状态与环境数据。</p>
+            <div class="form-tip">
+                <b>Observation tip</b>
+                <p>잎의 색, 새싹, 토양 상태를 사진과 함께 남기면 변화를 비교하기 쉽습니다.<br>记录叶片颜色、新芽和土壤状态，便于日后比较。</p>
+            </div>
+        </aside>
+
+        <form class="diary-form" method="post" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+            {% if form.non_field_errors %}<div class="form-errors">{{ form.non_field_errors }}</div>{% endif %}
+
+            <div class="form-grid">
+                {% for field in form %}
+                    <div class="form-group {% if field.name == 'notes' or field.name == 'photo' %}form-wide{% endif %}">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                        {% if field.help_text %}<small>{{ field.help_text }}</small>{% endif %}
+                        {% for error in field.errors %}<p class="field-error">{{ error }}</p>{% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="form-actions">
+                <a class="button button-quiet" href="{% url 'plant_care:diary-list' %}">Cancel</a>
+                <button class="button button-primary" type="submit">Save Observation <span>→</span></button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

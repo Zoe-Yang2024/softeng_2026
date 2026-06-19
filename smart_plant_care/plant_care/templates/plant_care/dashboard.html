@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Dashboard · Smart Plant Care{% endblock %}
+
+{% block content %}
+<section class="dashboard-hero">
+    <div class="shell dashboard-heading">
+        <div>
+            <p class="eyebrow"><span></span> LIVE MONITORING · 실시간 모니터링 · 实时监测</p>
+            <h1>Plant Dashboard</h1>
+            <p>{{ plant.name }} · {{ plant.location }} · Mock Sensor Mode</p>
+        </div>
+        <div class="dashboard-status">
+            <i></i>
+            <span><b>System Online</b><small>시스템 정상 · 系统在线</small></span>
+        </div>
+    </div>
+</section>
+
+<section class="shell dashboard-content">
+    {% if messages %}
+        {% for message in messages %}<div class="alert-success">✓ {{ message }}</div>{% endfor %}
+    {% endif %}
+
+    <div class="metric-grid">
+        <article class="metric-card moisture-card">
+            <div class="metric-top"><span class="metric-icon">◉</span><small>SOIL SENSOR</small></div>
+            <p>Soil Moisture</p>
+            <strong>{{ snapshot.soil_moisture }}<span>%</span></strong>
+            <div class="meter"><i style="width: {{ snapshot.soil_moisture }}%"></i></div>
+            <small>토양 수분 · 土壤湿度</small>
+        </article>
+        <article class="metric-card">
+            <div class="metric-top"><span class="metric-icon warm">⌁</span><small>TEMP SENSOR</small></div>
+            <p>Temperature</p>
+            <strong>{{ snapshot.temperature }}<span>°C</span></strong>
+            <div class="metric-note good">Comfort range</div>
+            <small>온도 · 温度</small>
+        </article>
+        <article class="metric-card">
+            <div class="metric-top"><span class="metric-icon sun">✦</span><small>LIGHT SENSOR</small></div>
+            <p>Light Intensity</p>
+            <strong>{{ snapshot.light_intensity }}<span>lx</span></strong>
+            <div class="metric-note">Moderate daylight</div>
+            <small>광도 · 光照强度</small>
+        </article>
+        <article class="metric-card watering-card">
+            <div class="metric-top"><span class="metric-icon water">◆</span><small>WATER PUMP</small></div>
+            <p>Watering Status</p>
+            {% if snapshot.needs_watering %}
+                <strong class="status-word attention">Needed</strong>
+                <div class="metric-note attention">Watering recommended</div>
+            {% else %}
+                <strong class="status-word">Stable</strong>
+                <div class="metric-note good">No watering needed</div>
+            {% endif %}
+            <small>급수 상태 · 浇水状态</small>
+        </article>
+    </div>
+
+    <div class="dashboard-main-grid">
+        <article class="chart-panel panel-surface">
+            <div class="panel-heading">
+                <div><small>SENSOR HISTORY</small><h2>12-hour Trend</h2></div>
+                <div class="chart-tabs" role="group" aria-label="Chart metric">
+                    <button class="active" type="button" data-series="moisture">Moisture</button>
+                    <button type="button" data-series="temperature">Temp</button>
+                    <button type="button" data-series="light">Light</button>
+                </div>
+            </div>
+            <div class="chart-wrap"><canvas id="sensorChart" aria-label="Sensor trend chart"></canvas></div>
+            <div class="chart-legend"><span><i></i> Simulated sensor data</span><small>모의 데이터 · 模拟数据</small></div>
+        </article>
+
+        <aside class="control-panel panel-surface">
+            <div class="panel-heading"><div><small>AUTOMATION</small><h2>Water Control</h2></div><span class="mode-badge">DEMO</span></div>
+            <div class="water-orb"><span>◆</span><b>Pump Ready</b><small>펌프 준비 · 水泵就绪</small></div>
+            <div class="last-event">
+                <span>Last watering<br><small>최근 급수 · 最近浇水</small></span>
+                <strong>{% if last_watering %}{{ last_watering.watered_at|date:"m.d H:i" }}{% else %}Not recorded{% endif %}</strong>
+            </div>
+            <form method="post" action="{% url 'plant_care:simulate-watering' %}">
+                {% csrf_token %}
+                <button class="water-button" type="submit">Run Watering Demo <span>→</span></button>
+            </form>
+            <p class="demo-warning">Simulation only · 실제 장치를 제어하지 않습니다 · 仅为模拟，不控制真实设备</p>
+        </aside>
+    </div>
+
+    <div class="camera-panel panel-surface">
+        <div class="panel-heading">
+            <div><small>REMOTE CAMERA</small><h2>Balcony Live View</h2></div>
+            <span class="live-badge"><i></i> SIMULATED LIVE</span>
+        </div>
+        <div class="camera-frame">
+            <img src="{% static 'plant_care/images/camera-placeholder.svg' %}" alt="Simulated balcony plant camera view">
+            <span class="camera-time">CAM 01 · KOREA BALCONY</span>
+        </div>
+        <p>WiFi 카메라 연결을 위한 화면 영역입니다. · 为未来 WiFi 摄像头连接预留的画面区域。</p>
+    </div>
+</section>
+
+{{ chart_data|json_script:"sensor-chart-data" }}
+<script src="{% static 'plant_care/js/dashboard.js' %}" defer></script>
+{% endblock %}

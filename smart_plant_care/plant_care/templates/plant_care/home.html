@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Home · Smart Plant Care{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="shell hero-grid">
+        <div class="hero-copy">
+            <p class="eyebrow"><span></span> SMART AGRICULTURE × WEB DEVELOPMENT</p>
+            <h1>Care for your plants,<br><em>from anywhere.</em></h1>
+            <p class="hero-subtitle">Remote Monitoring and Automatic Watering for Dormitory Plants</p>
+            <p class="lead">
+                소프트웨어 개발과 스마트팜 기술로 식물을 원격 모니터링하고 자동으로 관리합니다.<br>
+                利用软件开发与智慧农场技术，实现植物远程监测和自动浇水。
+            </p>
+            <div class="hero-actions">
+                <a class="button button-primary" href="{% url 'plant_care:dashboard' %}">View Dashboard <span>→</span></a>
+                <a class="button button-quiet" href="{% url 'plant_care:about' %}">Explore the System</a>
+            </div>
+            <div class="hero-meta">
+                <span><b>01</b> Web prototype</span>
+                <span><b>02</b> Simulated sensors</span>
+                <span><b>03</b> Hardware ready</span>
+            </div>
+        </div>
+
+        <div class="plant-visual" aria-label="Illustration of a connected smart plant">
+            <div class="visual-glow"></div>
+            <div class="signal signal-one">⌁</div>
+            <div class="signal signal-two">⌁</div>
+            <div class="leaf leaf-left"></div>
+            <div class="leaf leaf-right"></div>
+            <div class="stem"></div>
+            <div class="pot"><span>SMART<br>PLANT</span></div>
+            <div class="sensor-node node-moisture"><small>SOIL</small><strong>58%</strong></div>
+            <div class="sensor-node node-temp"><small>TEMP</small><strong>24.3°</strong></div>
+            <div class="sensor-node node-light"><small>LIGHT</small><strong>720 lx</strong></div>
+        </div>
+    </div>
+</section>
+
+<section class="feature-section shell">
+    <div class="section-heading">
+        <div>
+            <p class="eyebrow"><span></span> ONE SMALL PLANT, ONE CONNECTED SYSTEM</p>
+            <h2>From sensor signals<br>to everyday care.</h2>
+        </div>
+        <p>센서 데이터를 이해하기 쉬운 웹 화면으로 바꾸고, 멀리서도 식물의 상태를 확인합니다.<br>将传感器数据转化为清晰的网页信息，即使远行也能了解植物状态。</p>
+    </div>
+
+    <div class="feature-grid">
+        <article class="feature-card featured">
+            <span class="card-number">01</span>
+            <div class="feature-icon">◉</div>
+            <h3>Live Monitoring</h3>
+            <p>토양 수분, 온도, 광도를 한 화면에서 확인합니다.<br>集中查看土壤湿度、温度与光照。</p>
+            <a href="{% url 'plant_care:dashboard' %}">Open dashboard →</a>
+        </article>
+        <article class="feature-card">
+            <span class="card-number">02</span>
+            <div class="feature-icon">✦</div>
+            <h3>Plant Diary</h3>
+            <p>사진과 메모로 매일의 변화를 기록합니다.<br>使用照片与备注记录每天的成长。</p>
+            <a href="{% url 'plant_care:diary-list' %}">View diary →</a>
+        </article>
+        <article class="feature-card">
+            <span class="card-number">03</span>
+            <div class="feature-icon">⌁</div>
+            <h3>Hardware Ready</h3>
+            <p>STM32 / 51 MCU 데이터 연결을 위한 확장 구조입니다.<br>为接入真实单片机数据预留扩展结构。</p>
+            <a href="{% url 'plant_care:about' %}">See architecture →</a>
+        </article>
+    </div>
+</section>
+
+<section class="flow-section">
+    <div class="shell flow-grid">
+        <div><span>01</span><strong>Plant</strong><small>식물 · 植物</small></div>
+        <i>→</i>
+        <div><span>02</span><strong>Sensors</strong><small>센서 · 传感器</small></div>
+        <i>→</i>
+        <div><span>03</span><strong>STM32 / 51</strong><small>제어 장치 · 控制器</small></div>
+        <i>→</i>
+        <div><span>04</span><strong>Django Web</strong><small>원격 확인 · 远程查看</small></div>
+    </div>
+</section>
+{% endblock %}

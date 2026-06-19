@@ -1,0 +1,40 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Smart Plant Care System — remote plant monitoring and automatic watering prototype">
+    <title>{% block title %}Smart Plant Care System{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'plant_care/css/style.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav shell" aria-label="Main navigation">
+            <a class="brand" href="{% url 'plant_care:home' %}" aria-label="Smart Plant Care home">
+                <span class="brand-mark" aria-hidden="true">SP</span>
+                <span>Smart Plant <b>Care</b></span>
+            </a>
+            <div class="nav-links">
+                <a href="{% url 'plant_care:home' %}">Home</a>
+                <a href="{% url 'plant_care:dashboard' %}">Dashboard</a>
+                <a href="{% url 'plant_care:diary-list' %}">Diary</a>
+                <a href="{% url 'plant_care:about' %}">About</a>
+            </div>
+            <span class="connection-pill"><i></i> Prototype Online</span>
+        </nav>
+    </header>
+
+    <main>{% block content %}{% endblock %}</main>
+
+    <footer class="site-footer">
+        <div class="shell footer-grid">
+            <div>
+                <strong>Smart Plant Care System</strong>
+                <p>응용소프트웨어개발 × 스마트팜 · 应用软件开发 × 智慧农场</p>
+            </div>
+            <p>Phase 01 · Django Web Prototype</p>
+        </div>
+    </footer>
+</body>
+</html>

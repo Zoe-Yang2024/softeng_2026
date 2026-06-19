@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}About · Smart Plant Care{% endblock %}
+
+{% block content %}
+<section class="about-hero">
+    <div class="shell about-hero-grid">
+        <div>
+            <p class="eyebrow"><span></span> SYSTEM STORY · 프로젝트 소개 · 项目介绍</p>
+            <h1>Where web development<br><em>meets smart farming.</em></h1>
+        </div>
+        <div class="about-lead">
+            <p>응용소프트웨어개발 수업에서 배운 Python, Django, Database, HTML/CSS를 스마트팜 전공 문제에 적용한 프로젝트입니다.</p>
+            <p>本项目将《应用软件开发》课程中的 Python、Django、数据库和 Web 技术应用于智慧农场专业场景。</p>
+        </div>
+    </div>
+</section>
+
+<section class="shell story-section">
+    <div class="story-grid">
+        <div class="story-number">01</div>
+        <div>
+            <p class="eyebrow"><span></span> THE PROBLEM</p>
+            <h2>Plants still need care<br>when we travel.</h2>
+        </div>
+        <div class="story-copy">
+            <p>방학 동안 귀국하면 한국에 남아 있는 베란다 식물을 매일 확인하고 물을 주기 어렵습니다. 토양 수분과 환경을 원격으로 확인할 수 있다면 식물을 더 안전하게 관리할 수 있습니다.</p>
+            <p>暑假回国后，很难每天照顾留在韩国阳台上的植物。远程掌握土壤湿度和环境状态，可以让植物得到更可靠的照顾。</p>
+        </div>
+    </div>
+</section>
+
+<section class="architecture-section">
+    <div class="shell">
+        <div class="section-heading architecture-heading">
+            <div><p class="eyebrow"><span></span> SYSTEM ARCHITECTURE</p><h2>One connected<br>care cycle.</h2></div>
+            <p>현재는 Web Prototype과 Mock Data를 사용합니다. 하드웨어 연결 시에도 같은 화면과 데이터 구조를 유지하도록 설계했습니다.<br>当前使用网页原型和模拟数据；连接硬件后仍可沿用相同页面与数据结构。</p>
+        </div>
+        <div class="architecture-flow">
+            <article><span>01</span><div class="architecture-icon">♧</div><h3>Plant</h3><p>식물 · 植物</p></article>
+            <i>→</i>
+            <article><span>02</span><div class="architecture-icon">⌁</div><h3>Sensors</h3><p>수분 · 온도 · 광도<br>湿度 · 温度 · 光照</p></article>
+            <i>→</i>
+            <article><span>03</span><div class="architecture-icon">▦</div><h3>STM32 / 51</h3><p>센서 제어 · 数据控制</p></article>
+            <i>→</i>
+            <article><span>04</span><div class="architecture-icon">⌾</div><h3>Django Web</h3><p>데이터 저장 · 数据存储</p></article>
+            <i>→</i>
+            <article><span>05</span><div class="architecture-icon">◎</div><h3>Remote User</h3><p>원격 모니터링 · 远程监测</p></article>
+        </div>
+    </div>
+</section>
+
+<section class="shell course-section">
+    <div class="course-card">
+        <div><p class="eyebrow"><span></span> COURSE CONNECTION</p><h2>What this project demonstrates</h2></div>
+        <div class="course-tags">
+            <span>Python</span><span>Django</span><span>URL &amp; View</span><span>Model &amp; ORM</span><span>SQLite</span><span>Template</span><span>HTML / CSS</span><span>JSON API</span><span>Image Upload</span><span>Testing</span>
+        </div>
+        <p>웹 개발의 기본 흐름을 이해하고, 전공 분야의 실제 문제를 해결하는 프로토타입으로 확장했습니다.<br>理解 Web 开发流程，并将课程知识扩展为解决专业实际问题的原型。</p>
+    </div>
+</section>
+
+<section class="future-section">
+    <div class="shell">
+        <div class="future-heading"><p class="eyebrow"><span></span> FUTURE ROADMAP</p><h2>From prototype to<br>a personal smart farm.</h2></div>
+        <div class="roadmap-grid">
+            <article><b>NOW</b><span>01</span><h3>Web Prototype</h3><p>모의 센서와 Django 화면<br>模拟数据与 Django 页面</p></article>
+            <article><b>NEXT</b><span>02</span><h3>Device Connection</h3><p>STM32 / 51 + WiFi JSON API<br>单片机真实数据接口</p></article>
+            <article><b>FUTURE</b><span>03</span><h3>Remote Automation</h3><p>카메라, 자동 급수, 알림<br>摄像头、自动浇水与提醒</p></article>
+            <article><b>VISION</b><span>04</span><h3>Personal Smart Farm</h3><p>모바일 맞춤형 식물 관리<br>手机端个性化智慧农场</p></article>
+        </div>
+    </div>
+</section>
+
+<section class="api-section shell">
+    <div>
+        <p class="eyebrow"><span></span> HARDWARE-READY API</p>
+        <h2>Prepared for real sensor data.</h2>
+        <p>STM32/51의 WiFi 모듈은 장치 토큰과 함께 센서 값을 JSON으로 전송할 수 있습니다.<br>STM32/51 的 WiFi 模块可携带设备令牌，以 JSON 发送传感器数据。</p>
+    </div>
+    <pre><code>POST /api/v1/readings/
+X-Device-Token: ********
+
+{
+  "soil_moisture": 56,
+  "temperature": 24.3,
+  "light_intensity": 720
+}</code></pre>
+</section>
+{% endblock %}

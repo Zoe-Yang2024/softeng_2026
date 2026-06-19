@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Plant Diary · Smart Plant Care{% endblock %}
+
+{% block content %}
+<section class="diary-hero">
+    <div class="shell diary-heading">
+        <div>
+            <p class="eyebrow"><span></span> GROWTH RECORD · 성장 기록 · 成长记录</p>
+            <h1>Plant Diary</h1>
+            <p>사진과 센서 수치로 식물의 작은 변화를 기록합니다.<br>用照片与传感器数据记录植物的每一次变化。</p>
+        </div>
+        <a class="button button-primary" href="{% url 'plant_care:diary-create' %}">New Entry <span>＋</span></a>
+    </div>
+</section>
+
+<section class="shell diary-content">
+    {% if messages %}
+        {% for message in messages %}<div class="alert-success">✓ {{ message }}</div>{% endfor %}
+    {% endif %}
+
+    <div class="diary-summary">
+        <div><small>PLANT</small><strong>{{ plant.name }}</strong></div>
+        <div><small>LOCATION</small><strong>{{ plant.location }}</strong></div>
+        <div><small>TOTAL RECORDS</small><strong>{{ entries|length|stringformat:"02d" }}</strong></div>
+    </div>
+
+    {% if entries %}
+        <div class="diary-timeline">
+            {% for entry in entries %}
+                <article class="diary-entry">
+                    <div class="diary-date">
+                        <span>{{ entry.observed_on|date:"M"|upper }}</span>
+                        <strong>{{ entry.observed_on|date:"d" }}</strong>
+                        <small>{{ entry.observed_on|date:"Y" }}</small>
+                    </div>
+                    <div class="diary-photo">
+                        {% if entry.photo %}
+                            <img src="{{ entry.photo.url }}" alt="Plant observation on {{ entry.observed_on }}">
+                        {% else %}
+                            <img src="{% static 'plant_care/images/diary-placeholder.svg' %}" alt="Plant photo placeholder">
+                        {% endif %}
+                        <span class="condition-badge condition-{{ entry.condition }}">{{ entry.get_condition_display }}</span>
+                    </div>
+                    <div class="diary-copy">
+                        <p class="entry-kicker">OBSERVATION #{{ forloop.revcounter|stringformat:"02d" }}</p>
+                        <h2>{{ entry.get_condition_display }}</h2>
+                        <p>{{ entry.notes|linebreaksbr }}</p>
+                        <div class="entry-sensors">
+                            <span><small>MOISTURE</small><b>{% if entry.soil_moisture != None %}{{ entry.soil_moisture }}%{% else %}—{% endif %}</b></span>
+                            <span><small>TEMP</small><b>{% if entry.temperature != None %}{{ entry.temperature }}°C{% else %}—{% endif %}</b></span>
+                            <span><small>LIGHT</small><b>{% if entry.light_intensity != None %}{{ entry.light_intensity }} lx{% else %}—{% endif %}</b></span>
+                        </div>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="diary-empty">
+            <div class="empty-leaf">⌁</div>
+            <p class="eyebrow"><span></span> FIRST OBSERVATION</p>
+            <h2>Your plant story starts here.</h2>
+            <p>아직 기록이 없습니다. 오늘의 식물 상태를 남겨 보세요.<br>还没有观察记录，从今天开始记录植物的成长吧。</p>
+            <a class="button button-primary" href="{% url 'plant_care:diary-create' %}">Create First Entry <span>→</span></a>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

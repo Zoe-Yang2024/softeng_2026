@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" role="img" aria-labelledby="title desc">
+  <title id="title">Plant diary placeholder</title>
+  <desc id="desc">A minimal illustration of a plant growing in a pot</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e6efe1"/><stop offset="1" stop-color="#f3ead7"/></linearGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4d9267"/><stop offset="1" stop-color="#174b37"/></linearGradient>
+  </defs>
+  <rect width="900" height="640" fill="url(#bg)"/>
+  <circle cx="180" cy="120" r="120" fill="#fff" opacity=".22"/>
+  <circle cx="750" cy="180" r="180" fill="#c9f36a" opacity=".13"/>
+  <ellipse cx="455" cy="555" rx="185" ry="28" fill="#335644" opacity=".14"/>
+  <path d="M452 445V190" stroke="#1f6047" stroke-width="14" stroke-linecap="round"/>
+  <g fill="url(#leaf)">
+    <path d="M440 340c-133-3-171-103-161-159 128 8 187 71 161 159z"/>
+    <path d="M465 300c127-13 159-108 145-158-119 18-172 80-145 158z"/>
+    <path d="M444 237c-82-25-97-96-82-134 81 21 112 73 82 134z"/>
+  </g>
+  <path d="M335 410h235l-32 148H370z" fill="#b58e64"/>
+  <ellipse cx="452" cy="410" rx="118" ry="27" fill="#604831"/>
+  <text x="450" y="600" text-anchor="middle" fill="#1f6b4f" font-family="Arial" font-size="18" font-weight="700" letter-spacing="4">ADD TODAY'S PLANT PHOTO</text>
+</svg>
