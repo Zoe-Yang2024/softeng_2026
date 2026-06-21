@@ -8,6 +8,8 @@ Smart Farm Department
 🆔 **Student ID**: 202420921  
 🔗 **GitHub**: [Zoe-Yang2024](https://github.com/Zoe-Yang2024)
 
+🌐 **Assignment 05 Homepage**: [Open the website](https://zoe-yang2024.github.io/softeng_2026/)
+
 ---
 
 # 📚 Table of Contents
@@ -112,7 +114,7 @@ missing numbers have not been uploaded yet.
 | 02 | Python basic programming exercises | [hw02](./hw02) |
 | 03 | Streamlit GUI for the Python exercises | [hw03](./hw03) |
 | 04 | Web application exercise | [hw04](./hw04) |
-| 05 | HTML/CSS pages | [hw05](./hw05) |
+| 05 | Personal homepage built with HTML, CSS and JavaScript | [Website](https://zoe-yang2024.github.io/softeng_2026/) · [Source](./hw05) |
 | 06 | Multiplication table web app | [hw06](./hw06) |
 | 07 | Flask website | [hw07](./hw07) |
 | 08 | Bootstrap website | [hw08](./hw08) |
